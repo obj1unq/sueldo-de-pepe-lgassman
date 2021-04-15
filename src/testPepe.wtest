@@ -1,10 +1,22 @@
 import pepe.*
 
-describe "Sueldo Pepe" {
 	
-	test "Test 1" {
-		//TODO: Implementame
-	}
+test "pepe cadete" {
+	pepe.categoria(cadete)
+	assert.equals( 20000 , pepe.sueldo())
+}
 
+test "pepe gerente" {
+	pepe.categoria(gerente)
+	assert.equals( 15000 , pepe.sueldo())	
+}
+
+test "gerente aumenta el sueldo" {
+	pepe.categoria(gerente)
+	assert.equals( 15000 , pepe.sueldo())	
+	gerente.neto(17000)	
+	assert.equals( 17000 , pepe.sueldo())	
 	
 }
+
+	
