@@ -1,0 +1,30 @@
+import empleados.*
+import categorias.*
+
+test "Sofia como cadete" {
+
+	sofia.categoria(cadete)
+	
+	assert.equals(26000, sofia.neto())
+	
+}
+
+test "Sofia como vendedora con muchas ventas" {
+	
+	sofia.categoria(vendedor)
+	pepe.categoria(vendedor)
+	vendedor.activaAumentoPorMuchasVentas()
+	
+	assert.equals(16000 * 1.25 * 1.3, sofia.sueldo())
+	assert.equals(16000 * 1.25, pepe.sueldo())
+	
+}
+
+only test "Sofia es cadete a medio tiempo" {
+	
+	pepe.categoria(medioTiempo)
+	sofia.categoria(medioTiempo)
+	medioTiempo.categoriaBase(cadete)
+	
+	assert.equals(26000 / 2, sofia.neto())
+}
